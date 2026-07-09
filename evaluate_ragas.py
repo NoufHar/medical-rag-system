@@ -15,14 +15,20 @@ test_questions = [
     "What are the symptoms of asthma?",
     "How is diabetes treated?",
     "What causes high blood pressure?",
-    "What is kidney failure?"
+    "What is kidney failure?",
+    "What is osteoporosis?",
+    "What causes migraine?",
+    "What is cataract?",
+    "How is anemia diagnosed?",
+    "What are the symptoms of Parkinson's disease?"
 ]
+
 
 def evaluate_with_llm(question, answer, sources):
     prompt = f"""
 You are an evaluator for a medical RAG system.
 
-Evaluate the answer based on the retrieved context only.
+Evaluate the generated answer based ONLY on the retrieved context.
 
 Question:
 {question}
@@ -33,12 +39,12 @@ Generated Answer:
 Retrieved Context:
 {sources}
 
-Give scores from 1 to 5 for:
-1. answer_relevance: Does the answer directly answer the question?
-2. faithfulness: Is the answer supported by the retrieved context?
-3. retrieval_quality: Are the retrieved chunks relevant to the question?
+Score each metric from 1 to 5:
+- answer_relevance: Does the answer directly answer the question?
+- faithfulness: Is the answer fully supported by the retrieved context?
+- retrieval_quality: Are the retrieved chunks relevant and useful?
 
-Return ONLY valid JSON in this format:
+Return ONLY valid JSON:
 {{
   "answer_relevance": 0,
   "faithfulness": 0,
@@ -54,7 +60,7 @@ Return ONLY valid JSON in this format:
         max_tokens=300
     )
 
-    text = response.choices[0].message.content
+    text = response.choices[0].message.content.strip()
 
     try:
         return json.loads(text)
@@ -70,6 +76,8 @@ Return ONLY valid JSON in this format:
 results = []
 
 for question in test_questions:
+    print(f"Evaluating: {question}")
+
     answer, sources = generate_answer(question)
     evaluation = evaluate_with_llm(question, answer, sources)
 
@@ -82,10 +90,26 @@ for question in test_questions:
         "comments": evaluation["comments"]
     })
 
-df_results = pd.DataFrame(results)
 
-print(df_results)
+df_results = pd.DataFrame(results)
 
 df_results.to_csv("evaluation_results.csv", index=False)
 
-print("\nEvaluation saved to evaluation_results.csv")
+summary = df_results[
+    ["answer_relevance", "faithfulness", "retrieval_quality"]
+].mean()
+
+summary_df = summary.reset_index()
+summary_df.columns = ["metric", "average_score"]
+
+summary_df.to_csv("evaluation_summary.csv", index=False)
+
+print("\nEvaluation Results:")
+print(df_results)
+
+print("\nAverage Scores:")
+print(summary_df)
+
+print("\nSaved files:")
+print("- evaluation_results.csv")
+print("- evaluation_summary.csv")
