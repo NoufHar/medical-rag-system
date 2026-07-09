@@ -1,0 +1,41 @@
+question,answer,answer_relevance,faithfulness,retrieval_quality,comments
+What is glaucoma?,Glaucoma is a group of diseases that can damage the eye's optic nerve and result in vision loss and blindness.,5,5,5,"The answer directly answers the question and is fully supported by the retrieved context, which is highly relevant to the question."
+What are the symptoms of asthma?,"The symptoms of asthma include:
+
+1. Wheezing
+2. Coughing, especially early in the morning or at night
+3. Chest tightness
+4. Shortness of breath",5,5,5,"The answer directly answers the question and is fully supported by the retrieved context, which is highly relevant to the question."
+How is diabetes treated?,"Diabetes cannot be cured, but it can be managed. The treatments for diabetes include:
+
+- Taking medicines, such as insulin for type 1 diabetes or oral medications or insulin for type 2 diabetes.
+- Keeping track of blood glucose (blood sugar) levels by checking them one or more times a day.
+- Checking blood pressure if advised by a doctor and keeping a record of it.
+- Checking feet every day for cuts, blisters, red spots, and swelling.
+- Brushing teeth and flossing every day to keep the mouth, teeth, and gums healthy.
+- Stopping smoking and asking for help to quit.
+- Eating well by creating a healthy eating plan with the help of a dietitian.
+- Being active by exercising almost every day for a total of about 30 minutes.
+
+People with type 1 diabetes control their blood sugar with insulin, while many people with type 2 diabetes can control blood glucose levels with diet and exercise alone. Others may require oral medications or insulin, and some may need both, along with lifestyle modification.",5,5,5,"The answer directly answers the question, is supported by the retrieved context, and the retrieved chunks are highly relevant to the question."
+What causes high blood pressure?,"High blood pressure can be caused by various factors, including:
+
+1. Therapies (including birth control pills and estrogen) and over-the-counter medicines such as cold relief medicines, which can change the way your body controls fluid and salt balances, cause your blood vessels to constrict, or impact the renin-angiotensin-aldosterone system, leading to high blood pressure.
+
+2. Medical conditions such as chronic kidney disease, sleep apnea, thyroid problems, or certain tumors, which can change the way your body controls fluids, sodium, and hormones in your blood, leading to secondary high blood pressure.
+
+3. Changes in body functions, including:
+   - Kidney fluid and salt balances
+   - The renin-angiotensin-aldosterone system
+   - The sympathetic nervous system activity
+   - Blood vessel structure and function
+
+4. Unhealthy lifestyle habits, including:
+   - High sodium intake and sodium sensitivity
+   - Drinking too much alcohol
+   - Lack of physical activity
+
+5. Being overweight or obese, which can increase the resistance in the blood vessels, causing the heart to work harder and leading to high blood pressure.
+
+6. Genetic causes, including certain DNA changes before birth that may cause the development of high blood pressure later in life.",5,5,5,"The answer directly answers the question, is fully supported by the retrieved context, and the retrieved chunks are highly relevant to the question."
+What is kidney failure?,Kidney failure means very advanced kidney damage with less than 15% normal function.,5,5,5,"The answer directly answers the question and is supported by the retrieved context, which provides detailed information about kidney failure. The retrieved chunks are highly relevant to the question."
